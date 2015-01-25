@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125033213) do
+ActiveRecord::Schema.define(version: 20150125150525) do
 
   create_table "tasks", force: true do |t|
     t.string   "content"
@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20150125033213) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "state",      default: "to_do"
+    t.string   "state",        default: "to_do"
+    t.text     "content_html"
   end
 
   create_table "users", force: true do |t|

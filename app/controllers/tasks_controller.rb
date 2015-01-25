@@ -1,14 +1,14 @@
 class TasksController < ApplicationController
- before_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy, :change]
 
   respond_to :html
 
   def index
     @to_do = current_user.tasks.where(state: "to_do")
-  @doing = current_user.tasks.where(state: "doing")
-  @done = current_user.tasks.where(state: "done")
-  respond_with(@tasks)
+    @doing = current_user.tasks.where(state: "doing")
+    @done = current_user.tasks.where(state: "done")
+    respond_with(@tasks)
   end
 
   def show
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = current_user.task.new(task_params)
+    @task = current_user.tasks.new(task_params)
     @task.save
     respond_with(@task)
   end
